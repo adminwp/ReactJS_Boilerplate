@@ -55,4 +55,3 @@ please wait to build folder created and copy all content that folder and upload 
 - eslint-plugin-prettier
 - eslint-plugin-react
 - clean-webpack-plugin
-  After Cloning Project you can customize project
