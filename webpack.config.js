@@ -4,10 +4,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const PORT = process.env.PORT | 3000;
+
+let mode = 'development';
+
 const myConfig = {
 	devtool: 'inline-source-map',
 	target: 'web',
-	mode: 'development',
+	mode: mode,
 	entry: path.resolve(__dirname, 'src', 'index.js'),
 	output: {
 		filename: 'app.js',
@@ -30,18 +34,6 @@ const myConfig = {
 				exclude: /(node_modules)/,
 				use: {
 					loader: 'babel-loader',
-					options: {
-						// presets: ['@babel/preset-react'],
-						presets: [
-							[
-								'@babel/preset-env',
-								{
-									targets: 'defaults',
-								},
-							],
-							'@babel/preset-react',
-						],
-					},
 				},
 			},
 
@@ -76,7 +68,7 @@ const myConfig = {
 	devServer: {
 		contentBase: path.resolve(__dirname, 'build'),
 		compress: true,
-		port: 5000,
+		port: PORT,
 		open: true,
 		clientLogLevel: 'silent',
 		historyApiFallback: true,
