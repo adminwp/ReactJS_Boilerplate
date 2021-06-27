@@ -1,30 +1,19 @@
 const path = require('path');
-const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const PORT = process.env.PORT | 3000;
-
-let mode = 'development';
+const ImageMinimizerWebpackPlugin = require('image-minimizer-webpack-plugin');
 
 const myConfig = {
-	devtool: 'inline-source-map',
 	target: 'web',
-	mode: mode,
-	entry: path.resolve(__dirname, 'src', 'index.js'),
+	entry: path.resolve(__dirname, '../', 'src', 'index.js'),
 	output: {
-		filename: 'app.js',
-		path: path.resolve(__dirname, 'build'),
+		filename: 'js/app.js',
+		path: path.resolve(__dirname, '../', 'build'),
 		publicPath: '/',
 	},
 
 	resolve: {
-		extensions: ['.js', '.html', '.jsx'],
-	},
-
-	performance: {
-		hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
+		extensions: ['.js', '.html', '.json', '.jsx'],
 	},
 
 	module: {
@@ -51,7 +40,7 @@ const myConfig = {
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: 'fonts/[hash][ext]',
+					filename: './fonts/[hash][ext]',
 				},
 			},
 
@@ -59,33 +48,31 @@ const myConfig = {
 				test: /\.(png|jpg|svg)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: './images/[hash][ext][query]',
+					filename: './images/[base]',
 				},
 			},
 		],
 	},
 
-	devServer: {
-		contentBase: path.resolve(__dirname, 'build'),
-		compress: true,
-		port: PORT,
-		open: true,
-		clientLogLevel: 'silent',
-		historyApiFallback: true,
-		hot: true,
-	},
-
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-
-		new CleanWebpackPlugin({
-			dry: true,
-			cleanOnceBeforeBuildPatterns: ['build'],
+		new ImageMinimizerWebpackPlugin({
+			test: /\.(png|jpg|svg)$/i,
+			maxConcurrency: 3,
+			minimizerOptions: {
+				plugins: [
+					['mozjpeg', { quality: 50, progressive: true }],
+					['pngquant', { quality: [0.5, 0.5] }],
+					['gifsicle', { optimizationLevel: 2 }],
+					['svgo', { multipass: true }],
+				],
+			},
 		}),
 
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
-			template: path.resolve(__dirname, 'src', 'index.html'),
+			template: path.resolve(__dirname, '../', 'src', 'index.html'),
+			minify: true,
+			inject: 'body',
 		}),
 
 		new MiniCssExtractPlugin({
