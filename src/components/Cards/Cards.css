@@ -1,0 +1,9 @@
+.cards {
+	width: 100%;
+	padding: 4rem 0;
+}
+
+.cards .container {
+	width: 100%;
+	max-width: 100%;
+}

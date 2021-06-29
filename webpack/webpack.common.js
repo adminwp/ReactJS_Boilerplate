@@ -7,13 +7,17 @@ const myConfig = {
 	target: 'web',
 	entry: path.resolve(__dirname, '../', 'src', 'index.js'),
 	output: {
-		filename: 'js/app.js',
+		filename: 'js/app.[contenthash].js',
 		path: path.resolve(__dirname, '../', 'build'),
 		publicPath: '/',
 	},
 
 	resolve: {
 		extensions: ['.js', '.html', '.json', '.jsx'],
+	},
+
+	optimization: {
+		minimize: true,
 	},
 
 	module: {

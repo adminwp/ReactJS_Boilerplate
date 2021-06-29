@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import Cards from './Cards/Cards';
+
 class App extends Component {
 	render() {
 		const getColorLevel1 = getComputedStyle(
@@ -61,6 +63,8 @@ class App extends Component {
 						</div>
 					</div>
 				</div>
+
+				<Cards wrapperClassName="App"></Cards>
 			</div>
 		);
 	}
