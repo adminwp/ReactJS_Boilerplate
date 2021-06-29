@@ -6,7 +6,10 @@ module.exports = merge(common, {
 	devtool: false,
 	performance: {
 		hints: 'warning',
+		maxAssetSize: 100 * 1024, // 100 KiB
+		maxEntrypointSize: 100 * 1024, // 100 KiB
 	},
+
 	plugins: [
 		// new CleanWebpackPlugin({
 		// 	dry: true,

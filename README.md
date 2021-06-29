@@ -8,7 +8,7 @@
 
 **For Use Of This Structure Must Enter The Following Command**
 
-**git clone https://github.com/adminwp/ReactJS-Bolierplate.git**
+**git clone https://github.com/adminwp/ReactJS_Boilerplate.git**
 
 **After Cloning Project you can customize project**
 
@@ -56,7 +56,7 @@
 - eslint-plugin-react
 - clean-webpack-plugin
 
-## List Of Updates
+## List Of Updates Project
 
 - image-minimizer-webpack-plugin
 - imagemin-gifsicle
