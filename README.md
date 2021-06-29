@@ -56,7 +56,7 @@
 - eslint-plugin-react
 - clean-webpack-plugin
 
-## List Of Updates
+## List Of Updates Project
 
 - image-minimizer-webpack-plugin
 - imagemin-gifsicle
