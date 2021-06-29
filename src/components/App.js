@@ -5,6 +5,7 @@ import './App.css';
 import Logo from './Logo';
 
 import Cards from './Cards/Cards';
+import Footer from './Footer/Footer';
 
 class App extends Component {
 	render() {
@@ -72,6 +73,7 @@ class App extends Component {
 				</div>
 
 				<Cards wrapperClassName="App"></Cards>
+				<Footer wrapperClassName="App"></Footer>
 			</div>
 		);
 	}
