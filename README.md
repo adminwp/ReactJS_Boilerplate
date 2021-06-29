@@ -8,7 +8,7 @@
 
 **For Use Of This Structure Must Enter The Following Command**
 
-**git clone https://github.com/adminwp/ReactJS-Bolierplate.git**
+**git clone https://github.com/adminwp/ReactJS_Boilerplate.git**
 
 **After Cloning Project you can customize project**
 
