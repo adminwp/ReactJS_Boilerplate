@@ -8,10 +8,7 @@ const PORT = process.env.PORT | 3000;
 
 module.exports = merge(common, {
 	mode: process.env.NODE_ENV,
-
-	performance: {
-		hints: false,
-	},
+	devtool: 'eval-source-map',
 
 	devServer: {
 		contentBase: path.resolve(__dirname, '../', 'build'),

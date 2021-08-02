@@ -68,6 +68,13 @@
 	font-size: 1.2rem;
 	text-transform: capitalize;
 	box-shadow: 0 2px 5px var(--dark-color-level-3);
+	transition: background-color 300ms ease;
+}
+
+.card-btn:hover {
+	background-color: #9e9e9ec7;
+
+	/* background: green; */
 }
 
 .card:hover .card-figure {

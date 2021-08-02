@@ -62,6 +62,7 @@
 - imagemin-gifsicle
 - imagemin-mozjpeg
 - imagemin-pngquant
+- imagemin-svgo
 - webpack-merge
 - @pmmmwh/react-refresh-webpack-plugin
 - react-refresh

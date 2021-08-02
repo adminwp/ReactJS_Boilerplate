@@ -1,6 +1,6 @@
 import React from 'react';
 import PropsTypes from 'prop-types';
-import Logo from '../Logo';
+import Logo from '../UI/Logo';
 import FooterList from './FooterList';
 import FooterItem from './FooterItem';
 import './Footer.css';

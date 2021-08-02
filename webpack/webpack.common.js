@@ -16,6 +16,12 @@ const myConfig = {
 		extensions: ['.js', '.html', '.json', '.jsx'],
 	},
 
+	performance: {
+		hints: false,
+		maxAssetSize: 100 * 1024, // 100 KiB
+		maxEntrypointSize: 100 * 1024, // 100 KiB
+	},
+
 	optimization: {
 		minimize: true,
 	},
@@ -77,10 +83,14 @@ const myConfig = {
 			template: path.resolve(__dirname, '../', 'src', 'index.html'),
 			minify: true,
 			inject: 'body',
+			cache: true,
+			hash: true,
 		}),
 
 		new MiniCssExtractPlugin({
 			filename: 'css/app.css',
+			// filename: '[name].[contenthash].css',
+			// chunkFilename: '[id].[contenthash].css',
 			linkType: 'text/css',
 		}),
 	],
